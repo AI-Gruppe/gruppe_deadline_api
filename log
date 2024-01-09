@@ -1,0 +1,72 @@
+Attaching to deadlinesDB, gruppe_deadline_api-deadlines_app-1
+deadlinesDB                          | 2023-12-05T21:10:15Z [1] INFO [e52b0] {general} ArangoDB 3.8.0 [linux] 64bit, using jemalloc, build tags/v3.8.0-0-g408b3e4a059, VPack 0.1.35, RocksDB 6.8.0, ICU 64.2, V8 7.9.317, OpenSSL 1.1.1k  25 Mar 2021
+deadlinesDB                          | 2023-12-05T21:10:15Z [1] INFO [75ddc] {general} detected operating system: Linux version 5.15.133.1-microsoft-standard-WSL2 (root@1c602f52c2e4) (gcc (GCC) 11.2.0, GNU ld (GNU Binutils) 2.37) #1 SMP Thu Oct 5 21:02:42 UTC 2023
+deadlinesDB                          | 2023-12-05T21:10:15Z [1] INFO [25362] {memory} Available physical memory: 4066357248 bytes, available cores: 8
+deadlinesDB                          | 2023-12-05T21:10:15Z [1] WARNING [118b0] {memory} maximum number of memory mappings per process is 65530, which seems too low. it is recommended to set it to at least 512000
+deadlinesDB                          | 2023-12-05T21:10:15Z [1] WARNING [49528] {memory} execute 'sudo sysctl -w "vm.max_map_count=512000"'
+deadlinesDB                          | 2023-12-05T21:10:15Z [1] WARNING [e8b68] {memory} /sys/kernel/mm/transparent_hugepage/enabled is set to 'always'. It is recommended to set it to a value of 'never' or 'madvise'
+deadlinesDB                          | 2023-12-05T21:10:15Z [1] WARNING [f3108] {memory} execute 'sudo bash -c "echo madvise > /sys/kernel/mm/transparent_hugepage/enabled"'
+deadlinesDB                          | 2023-12-05T21:10:15Z [1] WARNING [f3108] {memory} execute 'sudo bash -c "echo madvise > /sys/kernel/mm/transparent_hugepage/defrag"'
+deadlinesDB                          | 2023-12-05T21:10:15Z [1] INFO [144fe] {general} using storage engine 'rocksdb'
+deadlinesDB                          | 2023-12-05T21:10:15Z [1] INFO [3bb7d] {cluster} Starting up with role SINGLE
+deadlinesDB                          | 2023-12-05T21:10:15Z [1] INFO [f6e0e] {aql} memory limit per AQL query automatically set to 2439814349 bytes. to modify this value, please adjust the startup option `--query.memory-limit`
+deadlinesDB                          | 2023-12-05T21:10:15Z [1] INFO [a1c60] {syscall} file-descriptors (nofiles) hard limit is 1048576, soft limit is 1048576
+gruppe_deadline_api-deadlines_app-1  | INFO:     Will watch for changes in these directories: ['/app']
+gruppe_deadline_api-deadlines_app-1  | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+gruppe_deadline_api-deadlines_app-1  | INFO:     Started reloader process [1] using WatchFiles
+deadlinesDB                          | 2023-12-05T21:10:16Z [1] INFO [c1b63] {arangosearch} ArangoSearch maintenance: [1..1] commit thread(s), [1..1] consolidation thread(s)
+deadlinesDB                          | 2023-12-05T21:10:16Z [1] INFO [6ea38] {general} using endpoint 'http+tcp://0.0.0.0:8529' for non-encrypted requests
+deadlinesDB                          | 2023-12-05T21:10:17Z [1] INFO [cf3f4] {general} ArangoDB (version 3.8.0 [linux]) is ready for business. Have fun!
+gruppe_deadline_api-deadlines_app-1  | Process SpawnProcess-1:
+gruppe_deadline_api-deadlines_app-1  | Traceback (most recent call last):
+gruppe_deadline_api-deadlines_app-1  |   File "/usr/local/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+gruppe_deadline_api-deadlines_app-1  |     self.run()
+gruppe_deadline_api-deadlines_app-1  |   File "/usr/local/lib/python3.11/multiprocessing/process.py", line 108, in run
+gruppe_deadline_api-deadlines_app-1  |     self._target(*self._args, **self._kwargs)
+gruppe_deadline_api-deadlines_app-1  |   File "/usr/local/lib/python3.11/site-packages/uvicorn/_subprocess.py", line 76, in subprocess_started
+gruppe_deadline_api-deadlines_app-1  |     target(sockets=sockets)
+gruppe_deadline_api-deadlines_app-1  |   File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 60, in run
+gruppe_deadline_api-deadlines_app-1  |     return asyncio.run(self.serve(sockets=sockets))
+gruppe_deadline_api-deadlines_app-1  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+gruppe_deadline_api-deadlines_app-1  |   File "/usr/local/lib/python3.11/asyncio/runners.py", line 190, in run
+gruppe_deadline_api-deadlines_app-1  |     return runner.run(main)
+gruppe_deadline_api-deadlines_app-1  |            ^^^^^^^^^^^^^^^^
+gruppe_deadline_api-deadlines_app-1  |   File "/usr/local/lib/python3.11/asyncio/runners.py", line 118, in run
+gruppe_deadline_api-deadlines_app-1  |     return self._loop.run_until_complete(task)
+gruppe_deadline_api-deadlines_app-1  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+gruppe_deadline_api-deadlines_app-1  |   File "uvloop/loop.pyx", line 1517, in uvloop.loop.Loop.run_until_complete
+gruppe_deadline_api-deadlines_app-1  |   File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 67, in serve
+gruppe_deadline_api-deadlines_app-1  |     config.load()
+gruppe_deadline_api-deadlines_app-1  |   File "/usr/local/lib/python3.11/site-packages/uvicorn/config.py", line 477, in load
+gruppe_deadline_api-deadlines_app-1  |     self.loaded_app = import_from_string(self.app)
+gruppe_deadline_api-deadlines_app-1  |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+gruppe_deadline_api-deadlines_app-1  |   File "/usr/local/lib/python3.11/site-packages/uvicorn/importer.py", line 21, in import_from_string
+gruppe_deadline_api-deadlines_app-1  |     module = importlib.import_module(module_str)
+gruppe_deadline_api-deadlines_app-1  |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+gruppe_deadline_api-deadlines_app-1  |   File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+gruppe_deadline_api-deadlines_app-1  |     return _bootstrap._gcd_import(name[level:], package, level)
+gruppe_deadline_api-deadlines_app-1  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+gruppe_deadline_api-deadlines_app-1  |   File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+gruppe_deadline_api-deadlines_app-1  |   File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+gruppe_deadline_api-deadlines_app-1  |   File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+gruppe_deadline_api-deadlines_app-1  |   File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+gruppe_deadline_api-deadlines_app-1  |   File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+gruppe_deadline_api-deadlines_app-1  |   File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+gruppe_deadline_api-deadlines_app-1  |   File "/app/deadlines.py", line 54, in <module>
+gruppe_deadline_api-deadlines_app-1  |     setup_database()
+gruppe_deadline_api-deadlines_app-1  |   File "/app/deadlines.py", line 51, in setup_database
+gruppe_deadline_api-deadlines_app-1  |     if not db.has_collection('deadlines'):
+gruppe_deadline_api-deadlines_app-1  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+gruppe_deadline_api-deadlines_app-1  |   File "/usr/local/lib/python3.11/site-packages/arango/database.py", line 1046, in has_collection
+gruppe_deadline_api-deadlines_app-1  |     return self._execute(request, response_handler)
+gruppe_deadline_api-deadlines_app-1  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+gruppe_deadline_api-deadlines_app-1  |   File "/usr/local/lib/python3.11/site-packages/arango/api.py", line 74, in _execute
+gruppe_deadline_api-deadlines_app-1  |     return self._executor.execute(request, response_handler)
+gruppe_deadline_api-deadlines_app-1  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+gruppe_deadline_api-deadlines_app-1  |   File "/usr/local/lib/python3.11/site-packages/arango/executor.py", line 66, in execute
+gruppe_deadline_api-deadlines_app-1  |     return response_handler(resp)
+gruppe_deadline_api-deadlines_app-1  |            ^^^^^^^^^^^^^^^^^^^^^^
+gruppe_deadline_api-deadlines_app-1  |   File "/usr/local/lib/python3.11/site-packages/arango/database.py", line 1043, in response_handler
+gruppe_deadline_api-deadlines_app-1  |     raise CollectionListError(resp, request)
+gruppe_deadline_api-deadlines_app-1  | arango.exceptions.CollectionListError: [HTTP 404][ERR 1228] database not found
+Gracefully stopping... (press Ctrl+C again to force)

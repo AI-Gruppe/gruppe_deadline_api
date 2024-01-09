@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  arangodb:
+    image: arangodb/arangodb:3.8.0
+    container_name: deadlinesDB
+    environment:
+      - ARANGO_ROOT_PASSWORD=rootpassword  
+    ports:
+      - "8529:8529"
+    volumes:
+      - arangodb-data:/var/lib/arangodb3
+      - arangodb-apps-data:/var/lib/arangodb3-apps
+    networks:
+      deadlines_network:
+        ipv4_address: 172.30.0.2  # statische IP für arangodb
+
+  deadlines_app:
+    build:
+      context: ./app
+    ports:
+      - 8000
+    depends_on:
+      - arangodb
+    environment:
+      - ARANGO_URL=http://172.30.0.2:8529
+      - ARANGO_USERNAME=root
+      - ARANGO_PASSWORD=rootpassword
+    networks:
+      deadlines_network:
+        ipv4_address: 172.30.0.3  # statische IP für fastapi_app
+      #frontproxy_fnet:
+      #  ipv4_address: 172.18.18.20 # statische IP für den Frontproxy
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+    restart: unless-stopped
+
+volumes:
+  arangodb-data:
+  arangodb-apps-data:
+
+networks:
+  deadlines_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.30.0.0/16
+  #frontproxy_fnet:
+  #   external: true  
